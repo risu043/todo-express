@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>task edit</h2>
+  <table class="task">
+    <tbody>
+      <tr>
+        <td>Title</td>
+        <td data-test="task-title"><%= task.title %></td>
+      </tr>
+      <tr>
+        <td>Description</td>
+        <td data-test="task-description"><%= task.description %></td>
+      </tr>
+      <tr>
+        <td>Due date</td>
+        <td data-test="task-due-date"><%= task.dueDate %></td>
+      </tr>
+      <tr>
+        <td>Done</td>
+        <td data-test="task-done"><%= task.isDone %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

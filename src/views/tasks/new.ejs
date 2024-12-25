@@ -1,0 +1,40 @@
+<div class="container">
+  <h2>Create Task</h2>
+  <form action="/tasks" method="post" class="form">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        value=""
+        name="title"
+        id="title"
+        data-test="input-title"
+      />
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        cols="10"
+        rows="5"
+        name="description"
+        id="description"
+        data-test="input-description"
+      ></textarea>
+    </div>
+    <div class="form-group">
+      <label for="dueDate">Due Date</label>
+      <input
+        type="text"
+        value=""
+        name="dueDate"
+        id="dueDate"
+        data-test="input-due-date"
+      />
+    </div>
+    <div class="form-action">
+      <button type="submit" class="button" data-test="submit-button">
+        Create
+      </button>
+    </div>
+  </form>
+</div>
