@@ -1,5 +1,11 @@
 <div class="container">
   <h2>task details</h2>
+  <div class="menu">
+    <a href="/tasks/<%= task.id %>/edit" class="button">Edit task</a>
+    <form action="/tasks/<%= task.id %>?_method=delete" method="post">
+      <button class="button" data-test="delete-button">Delete task</button>
+    </form>
+  </div>
   <table class="task">
     <tbody>
       <tr>

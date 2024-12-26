@@ -1,23 +1,59 @@
 <div class="container">
   <h2>task edit</h2>
-  <table class="task">
-    <tbody>
-      <tr>
-        <td>Title</td>
-        <td data-test="task-title"><%= task.title %></td>
-      </tr>
-      <tr>
-        <td>Description</td>
-        <td data-test="task-description"><%= task.description %></td>
-      </tr>
-      <tr>
-        <td>Due date</td>
-        <td data-test="task-due-date"><%= task.dueDate %></td>
-      </tr>
-      <tr>
-        <td>Done</td>
-        <td data-test="task-done"><%= task.isDone %></td>
-      </tr>
-    </tbody>
-  </table>
+  <% if(typeof errors !== 'undefined' ) { %>
+    <ul class="form-error">
+      <% errors.forEach(error=> { %>
+      <li data-test="error-item"><%= error.msg %></li>
+      <% }) %>
+    </ul>
+    <% } %>
+  <form action="/tasks/<%= task.id %>?_method=patch" method="post" class="form">
+    <div class="form-group">
+      <label for="title">Done</label>
+      <input
+        type="checkbox"
+        name="isDone"
+        id="isDone"
+        data-test="input-is-done"
+        <%= task.isDone ? 'checked' : '' %>
+      />
+    </div>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        value="<%= task.title %>"
+        name="title"
+        id="title"
+        data-test="input-title"
+      />
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        cols="10"
+        rows="5"
+        name="description"
+        id="description"
+        data-test="input-description"
+      >
+<%= task.description %></textarea
+      >
+    </div>
+    <div class="form-group">
+      <label for="dueDate">Due Date</label>
+      <input
+        type="text"
+        value="<%= task.dueDate %>"
+        name="dueDate"
+        id="dueDate"
+        data-test="input-due-date"
+      />
+    </div>
+    <div class="form-action">
+      <button type="submit" class="button" data-test="submit-button">
+        Edit
+      </button>
+    </div>
+  </form>
 </div>
